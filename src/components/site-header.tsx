@@ -24,7 +24,8 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="site-header">
+    <>
+      <header className="site-header">
       <Link href="/" className="brand" aria-label="Casa Bruma, inicio">
         <span className="brand-symbol" aria-hidden="true">
           CB
@@ -69,19 +70,16 @@ export function SiteHeader() {
               {label}
             </Link>
           ))}
-          <Link
-            href="/reservar"
-            className="mobile-reserve"
-            onClick={() => setOpen(false)}
-          >
-            Reservar una mesa
-          </Link>
         </nav>
         <div className="mobile-menu-meta">
           <a href="tel:+59346001842">+593 4 600 1842</a>
           <span>Mar — Sáb · Guayaquil</span>
         </div>
       </div>
-    </header>
+      </header>
+      <Link href="/reservar" className="mobile-booking-bar">
+        Reservar una mesa <span>Mar — Sáb</span>
+      </Link>
+    </>
   );
 }
