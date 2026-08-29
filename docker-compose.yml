@@ -1,0 +1,38 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: casa_bruma
+      POSTGRES_USER: bruma
+      POSTGRES_PASSWORD: bruma_dev
+    ports:
+      - "55432:5432"
+    volumes:
+      - bruma_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bruma -d casa_bruma"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  app:
+    profiles: ["full"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://bruma:bruma_dev@postgres:5432/casa_bruma?schema=public
+      NEXT_PUBLIC_APP_URL: http://localhost:3000
+      SESSION_COOKIE_NAME: bruma_session
+      SESSION_TTL_HOURS: 12
+      IP_HASH_SECRET: local-docker-secret-change-before-production-2026
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  bruma_postgres_data:
