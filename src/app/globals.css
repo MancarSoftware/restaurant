@@ -13,8 +13,8 @@
   --gold-light: #dcbb78;
   --danger: #c9695f;
   --success: #6f9273;
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Manrope", Arial, sans-serif;
+  --font-display: var(--font-poster), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-human), Arial, sans-serif;
   --container: 90rem;
   --gutter: clamp(1.25rem, 4vw, 4.5rem);
   --space-section: clamp(5rem, 10vw, 10rem);

@@ -14,7 +14,7 @@ export default async function AdminLoginPage() {
     <main className="admin-login">
       <div className="admin-login-art">
         <Image
-          src="/images/restaurant-interior.webp"
+          src="/images/dining-room-v2.webp"
           alt=""
           fill
           priority

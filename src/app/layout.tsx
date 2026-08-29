@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Barlow_Condensed, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
-const display = Cormorant_Garamond({
-  variable: "--font-display",
+const display = Barlow_Condensed({
+  variable: "--font-poster",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["600", "700", "800", "900"],
   display: "swap",
 });
 
-const sans = Manrope({
-  variable: "--font-sans",
+const sans = IBM_Plex_Sans({
+  variable: "--font-human",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero-fish.webp",
+        url: "/images/hero-kitchen-v2.webp",
         width: 1536,
         height: 1024,
         alt: "Corvina con cacao y maduro de Casa Bruma",
@@ -52,14 +52,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Casa Bruma",
     description: "Ecuador, contado a fuego lento.",
-    images: ["/images/hero-fish.webp"],
+    images: ["/images/hero-kitchen-v2.webp"],
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#090908",
+  themeColor: "#080808",
 };
 
 export default function RootLayout({

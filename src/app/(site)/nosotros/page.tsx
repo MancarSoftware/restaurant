@@ -27,7 +27,7 @@ export default function AboutPage() {
         <div className="about-image">
           <div className="about-image-inner">
             <Image
-              src="/images/chef-valentina.webp"
+              src="/images/chef-service-v2.webp"
               alt="Chef Valentina Cedeño en la cocina de Casa Bruma"
               fill
               priority

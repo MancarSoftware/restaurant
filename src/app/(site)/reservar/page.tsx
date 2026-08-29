@@ -19,7 +19,7 @@ export default async function ReservationPage() {
     <section className="form-shell">
       <aside className="form-aside">
         <Image
-          src="/images/restaurant-interior.webp"
+          src="/images/dining-room-v2.webp"
           alt="Mesa junto al fuego en Casa Bruma"
           fill
           priority

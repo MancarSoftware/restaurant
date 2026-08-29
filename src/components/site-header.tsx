@@ -27,9 +27,11 @@ export function SiteHeader() {
     <header className="site-header">
       <Link href="/" className="brand" aria-label="Casa Bruma, inicio">
         <span className="brand-symbol" aria-hidden="true">
-          B
+          CB
         </span>
-        <span>Casa Bruma</span>
+        <span className="brand-name">
+          Casa Bruma <small>Cocina abierta · GYE</small>
+        </span>
       </Link>
       <nav className="desktop-nav" aria-label="Navegación principal">
         {links.map(([href, label]) => (
@@ -43,7 +45,7 @@ export function SiteHeader() {
         ))}
       </nav>
       <Link href="/reservar" className="header-reserve">
-        Reservar mesa
+        Reservar <span aria-hidden="true">↗</span>
       </Link>
       <button
         className="menu-toggle"
@@ -77,7 +79,7 @@ export function SiteHeader() {
         </nav>
         <div className="mobile-menu-meta">
           <a href="tel:+59346001842">+593 4 600 1842</a>
-          <span>Guayaquil · Ecuador</span>
+          <span>Mar — Sáb · Guayaquil</span>
         </div>
       </div>
     </header>

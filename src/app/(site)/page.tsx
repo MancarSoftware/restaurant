@@ -27,7 +27,7 @@ export default async function HomePage() {
         "@type": "Restaurant",
         name: restaurant.name,
         description: restaurant.description,
-        image: `${process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"}/images/hero-fish.webp`,
+        image: `${process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"}/images/hero-kitchen-v2.webp`,
         telephone: restaurant.phone,
         email: restaurant.email,
         priceRange: "$$$$",
@@ -62,33 +62,41 @@ export default async function HomePage() {
         />
       )}
       <section className="hero" aria-labelledby="hero-title">
-        <div className="hero-media">
-          <Image
-            src="/images/hero-fish.webp"
-            alt="Corvina costrada con cacao y maduro en cerámica negra"
-            fill
-            priority
-            sizes="100vw"
-          />
-        </div>
         <div className="hero-content">
-          <p className="hero-kicker">Cocina ecuatoriana de autor · Guayaquil</p>
+          <p className="hero-kicker">
+            <span aria-hidden="true" /> Cocina ecuatoriana · Guayaquil
+          </p>
           <h1 id="hero-title" className="hero-title">
-            Ecuador, <em>a fuego lento.</em>
+            <span>Ecuador</span>
+            <span>se sirve</span>
+            <em>caliente.</em>
           </h1>
           <div className="hero-bottom">
             <p className="hero-copy">
-              Un recorrido íntimo por manglares, montañas y memorias, traducido
-              en una mesa contemporánea por la chef Valentina Cedeño.
+              Producto cercano, fuego alto y una cocina abierta que convierte el
+              territorio en una noche para compartir.
             </p>
             <div className="hero-actions">
               <Link href="/reservar" className="button">
-                Reservar mesa
+                Buscar una mesa <span aria-hidden="true">↗</span>
               </Link>
               <Link href="/menu" className="button secondary">
                 Descubrir la carta
               </Link>
             </div>
+          </div>
+        </div>
+        <div className="hero-media">
+          <Image
+            src="/images/hero-kitchen-v2.webp"
+            alt="Cocineros terminando una corvina con maduro en el pase de Casa Bruma"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 48vw"
+          />
+          <div className="hero-photo-label">
+            <span>01 / El pase</span>
+            <span>Servicio de noche</span>
           </div>
         </div>
         <div className="hero-meta">
@@ -103,22 +111,36 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <div className="service-ticker" aria-label="Información de servicio">
+        <span>Producto ecuatoriano</span>
+        <span aria-hidden="true">✦</span>
+        <span>Cocina abierta</span>
+        <span aria-hidden="true">✦</span>
+        <span>Martes a sábado</span>
+        <span aria-hidden="true">✦</span>
+        <span>Los Ceibos · GYE</span>
+      </div>
+
       <section className="manifesto">
         <div className="container manifesto-grid">
-          <div className="manifesto-index">01 · La mirada</div>
+          <div className="manifesto-index">01 · Lo que manda</div>
           <Reveal>
             <h2>
-              No cocinamos un país. <em>Escuchamos sus paisajes.</em>
+              Producto.
+              <br />
+              Fuego.
+              <br />
+              <em>Tiempo.</em>
             </h2>
             <div className="manifesto-note">
               <p>
-                Cada plato nace de una relación directa con productores,
-                pescadores y artesanos. El territorio no es una consigna: es la
-                materia prima.
+                Compramos cerca y cocinamos sin disfraz. Pescadores,
+                agricultores y artesanos marcan el ritmo de una carta que se
+                mueve con el mercado.
               </p>
               <p>
-                La carta cambia con la estación, el mar y el mercado. La técnica
-                acompaña; el ingrediente conserva la voz principal.
+                La técnica está para sacar sabor, no para dar una conferencia.
+                Primero llega el plato. Después, si quieres, te contamos todo.
               </p>
             </div>
           </Reveal>
@@ -129,29 +151,31 @@ export default async function HomePage() {
         <div className="container story-grid">
           <Reveal className="story-image">
             <Image
-              src="/images/chef-valentina.webp"
-              alt="Chef Valentina Cedeño terminando un plato en el pase"
+              src="/images/chef-service-v2.webp"
+              alt="Chef Valentina Cedeño durante el servicio en Casa Bruma"
               fill
               sizes="(max-width: 768px) 100vw, 52vw"
             />
+            <span className="story-image-note">
+              Valentina · Chef y fundadora
+            </span>
           </Reveal>
           <Reveal className="story-copy" delay={0.12}>
-            <p className="eyebrow">La chef · Valentina Cedeño</p>
+            <p className="eyebrow">02 · La cocina tiene cara</p>
             <h2>
-              Precisión <span>sin perder raíz.</span>
+              Serios con el sabor.<span>No con nosotros mismos.</span>
             </h2>
             <p>
-              Valentina cocina desde el recuerdo: el humo del patio, la acidez
-              de una naranjilla recién cortada, la sal húmeda del estero. Su
-              lenguaje es contemporáneo, pero su punto de partida siempre es
-              cercano.
+              Valentina cocina desde el recuerdo: humo de patio, naranjilla
+              recién cortada y sal húmeda del estero. El punto de partida es
+              cercano; la curiosidad no tiene frontera.
             </p>
             <p>
-              En Casa Bruma, la cocina abierta convierte cada servicio en un
-              diálogo entre oficio, producto y tiempo.
+              La cocina está abierta porque no tenemos nada que esconder y sí
+              mucho que compartir.
             </p>
             <div className="story-signature">
-              “Queremos que el sabor llegue antes que la explicación.”
+              “Que el sabor llegue antes que la explicación.”
             </div>
             <Link href="/nosotros" className="text-link">
               Conocer la casa <ArrowDownRight size={16} aria-hidden="true" />
@@ -164,32 +188,43 @@ export default async function HomePage() {
         <div className="container">
           <Reveal className="section-heading">
             <div>
-              <p className="eyebrow">02 · Platos de la casa</p>
-              <h2>El menú como paisaje.</h2>
+              <p className="eyebrow">03 · En la mesa ahora</p>
+              <h2>La carta no se queda quieta.</h2>
             </div>
             <p>
-              Una carta breve y en movimiento. Cocciones al fuego, fermentos
-              vivos y productos ecuatorianos en su mejor momento.
+              Cuatro platos del servicio de hoy. El resto cambia con el mar, la
+              cosecha y las ganas del equipo.
             </p>
           </Reveal>
-          <div className="menu-editorial">
-            {featured.map((item, index) => (
-              <Reveal key={item.id} className="menu-row" delay={index * 0.04}>
-                <span className="menu-number">0{index + 1}</span>
-                <h3>{item.name}</h3>
-                <div className="menu-row-copy">
-                  {item.description}
-                  <div className="menu-tags">
-                    {item.dietaryTags.map((tag) => (
-                      <span key={tag.id}>{tag.name}</span>
-                    ))}
+          <div className="featured-menu-layout">
+            <Reveal className="featured-menu-photo">
+              <Image
+                src="/images/dish-beef-v2.webp"
+                alt="Plato de res, raíces asadas y encurtidos de Casa Bruma"
+                fill
+                sizes="(max-width: 768px) 100vw, 38vw"
+              />
+              <span>Fotografía de servicio · 20:47</span>
+            </Reveal>
+            <div className="menu-editorial">
+              {featured.map((item, index) => (
+                <Reveal key={item.id} className="menu-row" delay={index * 0.04}>
+                  <span className="menu-number">0{index + 1}</span>
+                  <h3>{item.name}</h3>
+                  <div className="menu-row-copy">
+                    {item.description}
+                    <div className="menu-tags">
+                      {item.dietaryTags.map((tag) => (
+                        <span key={tag.id}>{tag.name}</span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <span className="menu-row-price">
-                  {formatCurrency(item.price.toString())}
-                </span>
-              </Reveal>
-            ))}
+                  <span className="menu-row-price">
+                    {formatCurrency(item.price.toString())}
+                  </span>
+                </Reveal>
+              ))}
+            </div>
           </div>
           <div className="menu-action">
             <Link href="/menu" className="text-link">
@@ -201,14 +236,21 @@ export default async function HomePage() {
 
       <section className="atmosphere">
         <Image
-          src="/images/restaurant-interior.webp"
-          alt="Comedor íntimo de Casa Bruma iluminado por una chimenea"
+          src="/images/dining-room-v2.webp"
+          alt="Comedor de Casa Bruma lleno durante el servicio de noche"
           fill
           sizes="100vw"
         />
         <Reveal className="atmosphere-copy">
-          <p className="eyebrow">03 · La atmósfera</p>
-          <h2>Una casa hecha para quedarse.</h2>
+          <p className="eyebrow">04 · Aquí se viene a estar</p>
+          <h2>
+            Mesa llena.
+            <br />
+            Cocina encendida.
+          </h2>
+          <Link href="/galeria" className="button secondary">
+            Ver la casa
+          </Link>
         </Reveal>
       </section>
 

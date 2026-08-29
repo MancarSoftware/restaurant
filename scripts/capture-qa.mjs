@@ -7,6 +7,9 @@ for (const viewport of [
 ]) {
   const page = await browser.newPage({ viewport });
   await page.goto("http://localhost:3000", { waitUntil: "networkidle" });
+  await page.screenshot({
+    path: `artifacts/qa/home-${viewport.width}.png`,
+  });
   for (const [name, selector] of [
     ["story", ".story"],
     ["menu", ".featured-menu"],
@@ -16,6 +19,24 @@ for (const viewport of [
     await page.waitForTimeout(850);
     await page.screenshot({
       path: `artifacts/qa/${viewport.name}-${name}.png`,
+    });
+  }
+  await page.goto("http://localhost:3000/menu", { waitUntil: "networkidle" });
+  await page.screenshot({
+    path: `artifacts/qa/menu-${viewport.width}.png`,
+  });
+  await page.goto("http://localhost:3000/reservar", {
+    waitUntil: "networkidle",
+  });
+  await page.screenshot({
+    path: `artifacts/qa/reserve-${viewport.width}.png`,
+  });
+  for (const route of ["nosotros", "galeria", "contacto", "eventos"]) {
+    await page.goto(`http://localhost:3000/${route}`, {
+      waitUntil: "networkidle",
+    });
+    await page.screenshot({
+      path: `artifacts/qa/${route}-${viewport.width}.png`,
     });
   }
   await page.close();

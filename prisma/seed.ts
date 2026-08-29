@@ -142,7 +142,7 @@ async function main() {
         "Corvina costrada, mole de cacao nacional, maduro al carbón y hierbas de altura.",
       price: 32,
       category: "mar-y-manglar",
-      imageUrl: "/images/hero-fish.webp",
+      imageUrl: "/images/hero-kitchen-v2.webp",
       featured: true,
       chefRecommended: true,
       dietaryTags: ["sin-gluten"],
@@ -164,7 +164,7 @@ async function main() {
         "Lomo fino en costra de hierbas, papas nativas, cebolla ahumada y reducción de mortiño.",
       price: 38,
       category: "tierra-y-fuego",
-      imageUrl: "/images/beef-dish.webp",
+      imageUrl: "/images/dish-beef-v2.webp",
       featured: true,
       chefRecommended: true,
       dietaryTags: ["sin-gluten"],
@@ -257,29 +257,29 @@ async function main() {
     {
       title: "Fuego de la casa",
       category: "Espacio",
-      imageUrl: "/images/restaurant-interior.webp",
-      altText: "Comedor íntimo de Casa Bruma iluminado por una chimenea",
+      imageUrl: "/images/dining-room-v2.webp",
+      altText: "Comedor de Casa Bruma lleno durante el servicio de noche",
       displayOrder: 1,
     },
     {
       title: "Corvina y cacao",
       category: "Platos",
-      imageUrl: "/images/hero-fish.webp",
-      altText: "Corvina costrada servida con cacao y maduro",
+      imageUrl: "/images/hero-kitchen-v2.webp",
+      altText: "Cocineros terminando una corvina con maduro en el pase",
       displayOrder: 2,
     },
     {
       title: "El gesto final",
       category: "Cocina",
-      imageUrl: "/images/chef-valentina.webp",
-      altText: "Chef Valentina Cedeño terminando un plato en la cocina",
+      imageUrl: "/images/chef-service-v2.webp",
+      altText: "Chef Valentina Cedeño durante el servicio en la cocina",
       displayOrder: 3,
     },
     {
       title: "Tierra alta",
       category: "Platos",
-      imageUrl: "/images/beef-dish.webp",
-      altText: "Lomo de res con papas nativas y cebolla asada",
+      imageUrl: "/images/dish-beef-v2.webp",
+      altText: "Plato de res con raíces asadas y encurtidos",
       displayOrder: 4,
     },
   ];
@@ -287,7 +287,14 @@ async function main() {
     const existing = await prisma.galleryImage.findFirst({
       where: { title: image.title },
     });
-    if (!existing) await prisma.galleryImage.create({ data: image });
+    if (existing) {
+      await prisma.galleryImage.update({
+        where: { id: existing.id },
+        data: image,
+      });
+    } else {
+      await prisma.galleryImage.create({ data: image });
+    }
   }
 
   const events = [
@@ -298,7 +305,7 @@ async function main() {
         "Un menú de siete tiempos guiado por ingredientes nocturnos, fuego y fermentos de temporada.",
       eventDate: futureDate(28),
       startTime: "19:30",
-      imageUrl: "/images/restaurant-interior.webp",
+      imageUrl: "/images/dining-room-v2.webp",
       location: "Mesa del Fuego · Casa Bruma",
       capacity: 18,
     },
@@ -309,7 +316,7 @@ async function main() {
         "Maridaje íntimo junto a productores de cacao nacional y una selección de vinos de mínima intervención.",
       eventDate: futureDate(61),
       startTime: "20:00",
-      imageUrl: "/images/hero-fish.webp",
+      imageUrl: "/images/hero-kitchen-v2.webp",
       location: "Salón Bruma",
       capacity: 24,
     },
