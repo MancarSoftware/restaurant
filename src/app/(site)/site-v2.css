@@ -14,6 +14,9 @@
   --radius-sm: 10px;
   --radius-md: 18px;
   --radius-lg: 26px;
+  --media-radius: 22px;
+  --media-arch: 48% 48% 22px 22px / 18% 18% 22px 22px;
+  --media-corner: 22px clamp(88px, 12vw, 176px) 22px 22px;
   --header-height: 68px;
   min-height: 100vh;
   overflow: clip;
@@ -1628,15 +1631,14 @@
 
 .site-shell .hero-media {
   overflow: hidden;
-  border-radius: 44% 56% 47% 53% / 34% 42% 58% 66%;
+  border-radius: var(--media-corner);
   box-shadow:
     0 28px 80px rgba(0, 0, 0, 0.46),
     0 0 70px rgba(255, 76, 32, 0.14);
-  transform: rotate(1.1deg);
 }
 
 .site-shell .hero-media img {
-  transform: scale(1.06) rotate(-1.1deg);
+  transform: scale(1.025);
 }
 
 .site-shell .hero-media::after {
@@ -1765,13 +1767,12 @@
 }
 
 .site-shell .story-image {
-  border-radius: 52% 48% 35% 65% / 40% 56% 44% 60%;
+  border-radius: var(--media-arch);
   box-shadow: 0 28px 70px rgba(91, 17, 4, 0.32);
-  transform: rotate(-1.8deg);
 }
 
 .site-shell .story-image img {
-  transform: scale(1.05) rotate(1.8deg);
+  transform: scale(1.025);
 }
 
 .site-shell .story-image-note {
@@ -1844,15 +1845,14 @@
 }
 
 .site-shell .featured-menu-photo {
-  border-radius: 31% 69% 54% 46% / 44% 38% 62% 56%;
+  border-radius: 22px 22px 22px clamp(56px, 6vw, 88px);
   box-shadow:
     0 24px 70px rgba(0, 0, 0, 0.5),
     0 0 50px rgba(255, 77, 46, 0.12);
-  transform: rotate(1.4deg);
 }
 
 .site-shell .featured-menu-photo img {
-  transform: scale(1.07) rotate(-1.4deg);
+  transform: scale(1.025);
 }
 
 .site-shell .featured-menu-photo > span {
@@ -1887,7 +1887,7 @@
 }
 
 .site-shell .atmosphere {
-  clip-path: ellipse(88% 70% at 50% 70%);
+  clip-path: polygon(0 7%, 100% 0, 100% 93%, 0 100%);
   margin-top: -5vw;
 }
 
@@ -2002,7 +2002,7 @@
 }
 
 .site-shell .form-aside {
-  border-radius: 42% 58% 28% 35% / 14% 18% 8% 10%;
+  border-radius: var(--media-arch);
   box-shadow: 0 24px 60px rgba(81, 24, 8, 0.22);
 }
 
@@ -2048,15 +2048,15 @@
 
 .site-shell .gallery-item,
 .site-shell .gallery-item:nth-child(3n) {
-  border-radius: 38% 62% 45% 55% / 36% 42% 58% 64%;
+  border-radius: var(--media-radius);
 }
 
 .site-shell .gallery-item:nth-child(4n + 1) {
-  border-radius: 56% 44% 63% 37% / 43% 58% 42% 57%;
+  border-radius: var(--media-radius);
 }
 
 .site-shell .gallery-item:nth-child(4n + 2) {
-  border-radius: 33% 67% 52% 48% / 61% 39% 61% 39%;
+  border-radius: var(--media-radius);
 }
 
 .site-shell .gallery-caption {
@@ -2080,7 +2080,7 @@
 }
 
 .site-shell .about-image-inner {
-  border-radius: 48% 52% 38% 62% / 36% 58% 42% 64%;
+  border-radius: var(--media-arch);
   box-shadow: 0 26px 70px rgba(91, 16, 4, 0.3);
 }
 
@@ -2090,7 +2090,7 @@
 }
 
 .site-shell .map-frame {
-  border-radius: 52% 48% 61% 39% / 43% 58% 42% 57%;
+  border-radius: var(--media-radius);
   box-shadow: 0 24px 60px rgba(70, 25, 10, 0.15);
 }
 
@@ -2289,7 +2289,7 @@
     grid-column: 1;
     grid-row: 2;
     margin: 0 16px;
-    border-radius: var(--radius-md);
+    border-radius: 18px 88px 18px 18px;
   }
 
   .site-shell .hero-meta {
@@ -2639,7 +2639,7 @@
 
   .site-shell .form-aside {
     min-height: 300px;
-    border-radius: 46% 54% 42% 58% / 14% 18% 12% 16%;
+    border-radius: 46% 46% 18px 18px / 18% 18% 18px 18px;
   }
 
   .site-shell .form-aside-copy {
@@ -2694,6 +2694,7 @@
     width: 100%;
     min-height: 390px;
     margin-bottom: 12px;
+    border-radius: 18px;
   }
 
   .site-shell .event-row {
