@@ -94,6 +94,10 @@ export default async function HomePage() {
             priority
             sizes="(max-width: 768px) 100vw, 48vw"
           />
+          <div className="hero-service-mark" aria-hidden="true">
+            <span>Cocina abierta</span>
+            <strong>Fuego alto</strong>
+          </div>
           <div className="hero-photo-label">
             <span>01 / El pase</span>
             <span>Servicio de noche</span>
