@@ -482,7 +482,6 @@
 .site-shell .section-heading h2,
 .site-shell .story-copy h2,
 .site-shell .atmosphere h2,
-.site-shell .footer-intro h2,
 .site-shell .page-hero h1,
 .site-shell .form-panel h1,
 .site-shell .form-aside-copy h2,
@@ -823,42 +822,20 @@
 
 /* Footer */
 .site-shell .site-footer {
-  padding: clamp(4rem, 7vw, 6rem) max(24px, calc((100vw - 1240px) / 2)) 0;
+  padding: clamp(2.25rem, 4vw, 3.5rem) max(24px, calc((100vw - 1240px) / 2))
+    1rem;
   background: var(--paper);
   color: var(--night);
-}
-
-.site-shell .footer-intro {
-  display: grid;
-  align-items: end;
-  gap: 1.5rem 3rem;
-  grid-template-columns: 1fr auto;
-  padding-bottom: clamp(2.5rem, 5vw, 4rem);
-  border-bottom: 1px solid var(--line-light);
-}
-
-.site-shell .footer-intro .eyebrow {
-  grid-column: 1 / -1;
-}
-
-.site-shell .footer-intro h2 {
-  margin: 0;
-  color: var(--night);
-  font-size: clamp(4rem, 8vw, 8rem);
-  line-height: 0.78;
-}
-
-.site-shell .footer-button {
-  min-width: 200px;
 }
 
 .site-shell .footer-grid {
   display: grid;
   grid-template-columns: 1.15fr 1.15fr 1fr 1fr;
+  border-top: 1px solid var(--line-light);
 }
 
 .site-shell .footer-grid > div {
-  min-height: 150px;
+  min-height: 132px;
   padding: 1.5rem;
   border-right: 1px solid var(--line-light);
 }
@@ -906,23 +883,6 @@
 
 .site-shell .footer-bottom span {
   margin-right: auto;
-}
-
-.site-shell .footer-wordmark {
-  overflow: hidden;
-  padding-top: 1rem;
-  color: var(--night);
-  font-family: var(--poster);
-  font-size: clamp(6rem, 15.5vw, 15rem);
-  font-weight: 900;
-  letter-spacing: -0.07em;
-  line-height: 0.67;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.site-shell .footer-wordmark span {
-  color: var(--ember);
 }
 
 /* Interior pages */
@@ -2095,23 +2055,7 @@
 }
 
 .site-shell .site-footer {
-  background:
-    radial-gradient(
-      ellipse at 82% 18%,
-      rgba(255, 77, 46, 0.24),
-      transparent 23%
-    ),
-    linear-gradient(145deg, #fff9ef, #f3ddc7 68%, #ffc789);
-}
-
-.site-shell .footer-wordmark {
-  background: linear-gradient(90deg, #0a0a09 0 42%, var(--ember) 58%, #c91b09);
-  background-clip: text;
-  color: transparent;
-}
-
-.site-shell .footer-wordmark span {
-  color: transparent;
+  background: linear-gradient(180deg, #f8f0e5, #ead9c5);
 }
 
 @media (max-width: 1080px) {
@@ -2551,19 +2495,7 @@
   }
 
   .site-shell .site-footer {
-    padding: 4rem 20px 0;
-  }
-
-  .site-shell .footer-intro {
-    grid-template-columns: 1fr;
-  }
-
-  .site-shell .footer-intro h2 {
-    font-size: clamp(3.8rem, 18vw, 5rem);
-  }
-
-  .site-shell .footer-button {
-    width: 100%;
+    padding: 2.25rem 20px 1rem;
   }
 
   .site-shell .footer-grid {
@@ -2584,10 +2516,6 @@
 
   .site-shell .footer-bottom span {
     width: 100%;
-  }
-
-  .site-shell .footer-wordmark {
-    font-size: 22vw;
   }
 
   .site-shell .page-hero {
